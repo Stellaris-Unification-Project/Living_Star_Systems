@@ -9,5 +9,5 @@ tags={
 	"Overhaul"
 }
 name="Living Star Systems"
-supported_version="3.*"
+supported_version="3.2.2"
 remote_file_id="2292643447"
