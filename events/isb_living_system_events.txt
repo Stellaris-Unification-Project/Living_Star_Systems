@@ -117,7 +117,7 @@ country_event = {
 				establish_communications_no_message = last_created_country
 			}
 
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 
 				country_event = { id = isb_living.3 days = 15 }
@@ -126,7 +126,7 @@ country_event = {
 					limit = {
 						NOT = { has_global_flag = flag_living_ai_spawn_off }
 					}
-					every_country = {
+					every_playable_country = {
 						limit = {
 							is_country_type = default
 							is_ai = yes
@@ -150,7 +150,7 @@ country_event = {
 		else = {
 			remove_country_flag = flag_found_living
 
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }
 
 				country_event = { id = isb_living.3 days = 10 }
@@ -159,7 +159,7 @@ country_event = {
 					limit = {
 						NOT = { has_global_flag = flag_living_ai_spawn_off }
 					}
-					every_country = {
+					every_playable_country = {
 						limit = {
 							is_country_type = default
 							is_ai = yes
@@ -184,7 +184,7 @@ country_event = {
 		# No player empires, in observer mode probably
 		if = {
 			limit = {
-				NOT = { any_country = { is_ai = no } }
+				NOT = { any_playable_country = { is_ai = no } }
 			}
 
 			# If AI spawn enabled
@@ -193,7 +193,7 @@ country_event = {
 					has_global_flag = flag_living_ai_spawn_all
 				}
 
-				every_country = {
+				every_playable_country = {
 					limit = {
 						is_country_type = default
 						is_ai = yes
@@ -222,7 +222,7 @@ country_event = {
 			auto_delete = no
 		}
 
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_ai = no
 				is_country_type = default
@@ -468,7 +468,7 @@ event = {
 				NOT = { has_global_flag = flag_living_density_off }
 			}
 
-			random_country = {
+			random_playable_country = {
 				limit = { is_country_type = default }
 
 				country_event = { id = isb_living.1 }
@@ -507,8 +507,10 @@ planet_event = {
 		SOLAR_SYSTEM = {
 			random_system_planet = {
 				limit = {
-					NOT = { is_same_value = PREVPREV }
-					NOT = { has_planet_flag = flag_living_billboard }
+					NOR = {
+						is_same_value = PREVPREV
+						has_planet_flag = flag_living_billboard
+					}
 				}
 
 				save_event_target_as = target_planet
@@ -1127,7 +1129,7 @@ event = {
 
 	immediate = {
 		# Resets all ai fleet counts
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 			}

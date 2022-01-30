@@ -387,7 +387,7 @@ isb_living_ai_density_policy = {
 
 					set_global_flag = flag_living_ai_density_low
 
-					every_country ={
+					every_playable_country = {
 						limit = {
 							is_country_type = default
 							is_ai = yes
@@ -429,7 +429,7 @@ isb_living_ai_density_policy = {
 
 					set_global_flag = flag_living_ai_density_normal
 					
-					every_country ={
+					every_playable_country = {
 						limit = {
 							is_country_type = default
 							is_ai = yes
@@ -457,8 +457,10 @@ isb_living_ai_density_policy = {
 isb_living_ai_interstellar_policy = {
 	potential = {
 		is_country_type = default
-		NOT = { has_policy_flag = isb_living_density_policy_off }
-		NOT = { has_policy_flag = isb_living_ai_spawn_policy_off }
+		NOR = {
+			has_policy_flag = isb_living_density_policy_off
+			has_policy_flag = isb_living_ai_spawn_policy_off
+		}
 	}
 
 	option = {
@@ -479,7 +481,7 @@ isb_living_ai_interstellar_policy = {
 
 					set_global_flag = flag_living_ai_interstellar_on
 					
-					every_country ={
+					every_playable_country = {
 						limit = {
 							is_country_type = default
 							is_ai = yes
@@ -521,7 +523,7 @@ isb_living_ai_interstellar_policy = {
 
 					set_global_flag = flag_living_ai_interstellar_off
 					
-					every_country ={
+					every_playable_country = {
 						limit = {
 							is_country_type = default
 							is_ai = yes
